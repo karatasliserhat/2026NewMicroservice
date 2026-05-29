@@ -1,0 +1,29 @@
+﻿services:
+  # Veritabanı servis adı görseldeki URL ile BİREBİR aynı olmalı
+  mongo.db.catalog:
+    image: mongo:8.0-rc
+    container_name: catalog_mongo_db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    ports:
+      - "27030:27017"
+    volumes:
+      - mongo.db.catalog.volume:/data/db
+
+  # UI Servisi (Görseldeki Yapı)
+  catalog-db-ui:
+    image: mongo-express:1.0.2-20-alpine3.19
+    container_name: catalog_mongo_ui
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://${MONGO_ROOT_USER}:${MONGO_ROOT_PASSWORD}@mongo.db.catalog:27017/
+      ME_CONFIG_BASICAUTH: false
+    ports:
+      - "27018:8081"
+    depends_on:
+      - mongo.db.catalog
+
+volumes:
+  mongo.db.catalog.volume:
