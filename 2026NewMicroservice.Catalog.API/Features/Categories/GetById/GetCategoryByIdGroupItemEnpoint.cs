@@ -7,7 +7,7 @@
             group.MapGet("/{id:guid}", async (Guid id, IMediator mediator)
                 => (await mediator.Send(new GetCategoryByIdQuery(id)))
                 .ToGenericResult())
-                .WithName("CategoryById")
+                .WithName("GetCategoryById")
                 .Produces<CategoryDto>(StatusCodes.Status200OK)
                 .Produces<CategoryDto>(StatusCodes.Status404NotFound);
             return group;
