@@ -10,9 +10,9 @@ namespace _2026NewMicroservice.Catalog.API.Features.Categories
         {
             app.MapGroup("/api/categories")
                 .WithTags("Categories")
-                .MapCreateCategoryGroupItemEndpoint()
-                .MapGetAllCategoryGroupItemEndpoint()
-                .MapGetCategoryByIdGroupItemEndpoint();
+                .MapCreateCategoryEndpoint()
+                .MapGetAllCategoriesEndpoint()
+                .MapGetCategoryByIdEndpoint();
         }
     }
 }

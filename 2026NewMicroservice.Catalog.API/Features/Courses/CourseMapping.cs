@@ -1,4 +1,5 @@
 ﻿using _2026NewMicroservice.Catalog.API.Features.Courses.Create;
+using _2026NewMicroservice.Catalog.API.Features.Courses.DTOs;
 
 namespace _2026NewMicroservice.Catalog.API.Features.Courses
 {
@@ -6,7 +7,9 @@ namespace _2026NewMicroservice.Catalog.API.Features.Courses
     {
         public CourseMapping()
         {
-            CreateMap<Course, CreateCourseCommand>().ReverseMap();
+            CreateMap<CreateCourseCommand, Course>();
+            CreateMap<Course, CourseDto>().ReverseMap();
+            CreateMap<Feature, FeatureDto>().ReverseMap();
         }
     }
 }

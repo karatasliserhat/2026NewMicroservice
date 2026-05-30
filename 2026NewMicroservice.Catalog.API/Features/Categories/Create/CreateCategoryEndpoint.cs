@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace _2026NewMicroservice.Catalog.API.Features.Categories.Create
 {
-    public static class CreateCategoryGroupItemEndpoint
+    public static class CreateCategoryEndpoint
     {
-        public static RouteGroupBuilder MapCreateCategoryGroupItemEndpoint(this RouteGroupBuilder group)
+        public static RouteGroupBuilder MapCreateCategoryEndpoint(this RouteGroupBuilder group)
         {
 
             group.MapPost("/", async (CreateCategoryCommand command, IMediator mediator)
