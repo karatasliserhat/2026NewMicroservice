@@ -1,5 +1,6 @@
 ﻿using _2026NewMicroservice.Catalog.API.Features.Courses.Create;
 using _2026NewMicroservice.Catalog.API.Features.Courses.GetAll;
+using _2026NewMicroservice.Catalog.API.Features.Courses.GetById;
 
 namespace _2026NewMicroservice.Catalog.API.Features.Courses
 {
@@ -10,6 +11,7 @@ namespace _2026NewMicroservice.Catalog.API.Features.Courses
             app.MapGroup("/api/courses")
                 .MapCreateCourseGroupumItemEnpoint()
                 .MapGetAllCourseEndpoint()
+                .MapGetCourseByIdEndpoint()
                 .WithTags("Courses");
         }
     }

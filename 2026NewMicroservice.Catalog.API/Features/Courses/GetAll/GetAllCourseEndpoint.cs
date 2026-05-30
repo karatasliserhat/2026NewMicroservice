@@ -7,7 +7,8 @@
 
             group.MapGet("/", async (IMediator mediator) =>
             (await mediator.Send(new GetAllCoursesQuery())).ToGenericResult())
-                .WithName("GetAllCourses");
+                .WithName("GetAllCourses")
+                .Produces<List<CategoryDto>>(StatusCodes.Status200OK);
 
             return group;
         }
