@@ -21,7 +21,7 @@ namespace _2026NewMicroservice.Shared
         [JsonIgnore] public bool IsFailure => !IsSuccess;
 
 
-        public static ServiceResult SuccessAsNoContent() => new ServiceResult { Status = HttpStatusCode.OK };
+        public static ServiceResult SuccessAsNoContent() => new ServiceResult { Status = HttpStatusCode.NoContent };
         public static ServiceResult ErrorAsNotFound() => new ServiceResult { Status = HttpStatusCode.NotFound, Fail = new ProblemDetails { Title = "Not Found", Detail = "The requested resource was not found." } };
 
 

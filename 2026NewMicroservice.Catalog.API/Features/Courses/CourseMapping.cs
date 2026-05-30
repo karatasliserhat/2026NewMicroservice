@@ -1,5 +1,6 @@
 ﻿using _2026NewMicroservice.Catalog.API.Features.Courses.Create;
 using _2026NewMicroservice.Catalog.API.Features.Courses.DTOs;
+using _2026NewMicroservice.Catalog.API.Features.Courses.Update;
 
 namespace _2026NewMicroservice.Catalog.API.Features.Courses
 {
