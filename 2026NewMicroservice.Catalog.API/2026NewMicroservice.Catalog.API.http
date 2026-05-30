@@ -40,6 +40,9 @@ Content-Type:application/json
   "categoryId": "{{categoryId}}"
 }
 ###
+DELETE {{baseUrl}}/api/courses/{{courseId}}
+Accept: application/json
+###
 GET {{baseUrl}}/api/courses
 Accept: application/json
 ###
