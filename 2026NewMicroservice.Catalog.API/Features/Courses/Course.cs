@@ -11,7 +11,7 @@ namespace _2026NewMicroservice.Catalog.API.Features.Courses
 
         public string? ImageUrl { get; set; }
         public DateTime Created { get; set; }
-
+        public Guid UserId { get; set; }
         public Guid CategoryId { get; set; } = default!;
         public Category Category { get; set; } = default!;
 
