@@ -8,6 +8,7 @@
             group.MapGet("/", async (IMediator mediatR)
                 => (await mediatR.Send(new GetAllCategoriesQuery()))
                 .ToGenericResult())
+                .MapToApiVersion(1, 0)
                 .WithName("GetAllCategories")
                 .Produces<List<CategoryDto>>(StatusCodes.Status200OK);
 

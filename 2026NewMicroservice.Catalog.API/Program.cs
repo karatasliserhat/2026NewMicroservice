@@ -16,13 +16,15 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
 
+builder.Services.AddVersioningExt();
+
 var app = builder.Build();
 
 app.AddSeedData().ContinueWith(x => { Console.WriteLine(x.IsFaulted ? x.Exception?.Message : "Seed data added."); });
 
-app.AddCategoryGroupEndpointExt();
+app.AddCategoryGroupEndpointExt(app.AddApiVersionSetExt());
 
-app.AddCourseGroupEndpointExt();
+app.AddCourseGroupEndpointExt(app.AddApiVersionSetExt());
 
 if (app.Environment.IsDevelopment())
 {

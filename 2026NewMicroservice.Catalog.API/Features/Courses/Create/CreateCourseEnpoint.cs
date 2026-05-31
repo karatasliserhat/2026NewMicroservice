@@ -11,6 +11,7 @@ namespace _2026NewMicroservice.Catalog.API.Features.Courses.Create
             group.MapPost("/", async (CreateCourseCommand request, IMediator mediator) =>
              (await mediator.Send(request))
              .ToGenericResult())
+                .MapToApiVersion(1, 0)
                 .WithName("CreateCourse")
                 .Produces<Guid>(StatusCodes.Status201Created)
                 .Produces(StatusCodes.Status404NotFound)

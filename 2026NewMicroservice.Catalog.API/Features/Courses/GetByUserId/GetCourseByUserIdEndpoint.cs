@@ -9,6 +9,7 @@ namespace _2026NewMicroservice.Catalog.API.Features.Courses.GetByUserId
             grouup.MapGet("/user/{userId:guid}", async (Guid userId, IMediator mediator) =>
             (await mediator.Send(new GetCourseByUserIdQuery(userId)))
             .ToGenericResult())
+                .MapToApiVersion(1, 0)
                 .WithName("GetCourseByUserId")
                 .Produces<List<CourseDto>>(StatusCodes.Status200OK)
                 .Produces(StatusCodes.Status404NotFound);
