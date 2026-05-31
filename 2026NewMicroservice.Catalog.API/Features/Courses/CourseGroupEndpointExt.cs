@@ -2,6 +2,7 @@
 using _2026NewMicroservice.Catalog.API.Features.Courses.Delete;
 using _2026NewMicroservice.Catalog.API.Features.Courses.GetAll;
 using _2026NewMicroservice.Catalog.API.Features.Courses.GetById;
+using _2026NewMicroservice.Catalog.API.Features.Courses.GetByUserId;
 using _2026NewMicroservice.Catalog.API.Features.Courses.Update;
 
 namespace _2026NewMicroservice.Catalog.API.Features.Courses
@@ -16,7 +17,8 @@ namespace _2026NewMicroservice.Catalog.API.Features.Courses
                 .MapGetAllCourseEndpoint()
                 .MapGetCourseByIdEndpoint()
                 .MapUpdateCourseCommandEndpoint()
-                .MapDeleteCourseCommandEndpoint();
+                .MapDeleteCourseCommandEndpoint()
+                .MapGetCourseByUserIdEndpoint();
         }
     }
 }

@@ -1,6 +1,7 @@
 @baseUrl = http://localhost:5101
-@categoryId = 08debc96-96b4-6fb6-0250-410000010000
+@categoryId = 08debf05-b8af-db9a-f875-a4e015e70000
 @courseId= 08debd75-408f-01f3-0250-410000010000
+@userId= 08debf05-b8eb-21db-f875-a4e015e70000
 GET {{baseUrl}}/api/categories
 Accept: application/json
 ###
@@ -48,4 +49,8 @@ Accept: application/json
 ###
 
 GET {{baseUrl}}/api/courses/{{courseId}}
+Accept: application/json
+
+###
+GET {{baseUrl}}/api/courses/user/{{userId}}
 Accept: application/json
