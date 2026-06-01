@@ -14,6 +14,9 @@ namespace _2026NewMicroservice.Shared.Extensions
             services.AddValidatorsFromAssemblyContaining(assembly);
 
             services.AddAutoMapper(cfg => { }, assembly);
+
+            services.AddSwaggerGen();
+
             return services;
         }
     }

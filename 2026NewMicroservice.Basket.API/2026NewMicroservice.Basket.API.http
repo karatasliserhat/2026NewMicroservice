@@ -1,0 +1,6 @@
+@_2026NewMicroservice.Basket.API_HostAddress = http://localhost:5151
+
+GET {{_2026NewMicroservice.Basket.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

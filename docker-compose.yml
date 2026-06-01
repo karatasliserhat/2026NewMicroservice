@@ -24,6 +24,28 @@
       - "27018:8081"
     depends_on:
       - mongo.db.catalog
+  redis.db.basket:
+    restart: always
+    image: redis:7.0-rc
+    container_name: basket_redis_db
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]
+    ports:
+      - "6379:6379"
+    volumes:
+     - redis.db.basket.volume:/data
+  redis.db.basket.ui:
+    restart: always
+    image: rediscommander/redis-commander:redis-commander-210
+    container_name: basket_redis_ui
+    environment:
+       REDIS_HOSTS: local:redis.db.basket:6379:0:${REDIS_PASSWORD}
+       HTTP_USER: ${REDIS_UI_USER}
+       HTTP_PASSWORD: ${REDIS_UI_PASSWORD}
+    ports:
+      - "27019:8081"
+    depends_on:
+      - redis.db.basket
 
 volumes:
   mongo.db.catalog.volume:
+  redis.db.basket.volume:

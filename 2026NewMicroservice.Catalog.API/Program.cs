@@ -12,7 +12,7 @@ builder.Services.AddDatabaseServiceExtension();
 
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 
 builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
 
