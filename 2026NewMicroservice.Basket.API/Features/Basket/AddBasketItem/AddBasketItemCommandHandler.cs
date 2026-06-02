@@ -1,17 +1,18 @@
 ﻿using _2026NewMicroservice.Basket.API.DTOs;
 using _2026NewMicroservice.Basket.API.Features.Basket.Const;
 using _2026NewMicroservice.Shared;
+using _2026NewMicroservice.Shared.Services;
 using MediatR;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 
 namespace _2026NewMicroservice.Basket.API.Features.Basket.AddBasketItem
 {
-    public class AddBasketItemCommandHandler(IDistributedCache distributedCache) : IRequestHandler<AddBasketItemCommand, ServiceResult>
+    public class AddBasketItemCommandHandler(IDistributedCache distributedCache, IIdentityService identityService) : IRequestHandler<AddBasketItemCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(AddBasketItemCommand request, CancellationToken cancellationToken)
         {
-            var userId = Guid.NewGuid();
+            var userId = identityService.GetUserId;
 
             var cacheBasket = string.Format(CacheBasketConst.BasketCache, userId);
 
@@ -22,7 +23,7 @@ namespace _2026NewMicroservice.Basket.API.Features.Basket.AddBasketItem
 
             var newBasketItem = new BasketItemDto(request.CourseId, request.CourseName, request.ImageUrl, request.Price, null);
 
-            if (!string.IsNullOrEmpty(basketStringData))
+            if (string.IsNullOrEmpty(basketStringData))
             {
                 currentBasketDto = new BasketDto(userId, [newBasketItem]);
 

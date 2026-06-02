@@ -2,6 +2,6 @@
 {
     public class CacheBasketConst
     {
-        public const string BasketCache = "basker:{0}";
+        public const string BasketCache = "basket:{0}";
     }
 }

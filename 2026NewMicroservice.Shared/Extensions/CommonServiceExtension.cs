@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using _2026NewMicroservice.Shared.Services;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace _2026NewMicroservice.Shared.Extensions
@@ -14,6 +15,8 @@ namespace _2026NewMicroservice.Shared.Extensions
             services.AddValidatorsFromAssemblyContaining(assembly);
 
             services.AddAutoMapper(cfg => { }, assembly);
+
+            services.AddScoped<IIdentityService, IdentityServiceFake>();
 
             services.AddSwaggerGen();
 
