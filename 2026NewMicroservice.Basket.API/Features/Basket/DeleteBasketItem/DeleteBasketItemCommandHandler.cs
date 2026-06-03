@@ -1,5 +1,4 @@
-﻿using _2026NewMicroservice.Basket.API.DTOs;
-using _2026NewMicroservice.Basket.API.Features.Basket.Const;
+﻿using _2026NewMicroservice.Basket.API.Features.Basket.Const;
 using _2026NewMicroservice.Shared;
 using _2026NewMicroservice.Shared.Services;
 using MediatR;
@@ -22,7 +21,7 @@ namespace _2026NewMicroservice.Basket.API.Features.Basket.DeleteBasketItem
             if (string.IsNullOrEmpty(basketData))
                 return ServiceResult.Error("Not Found", "Not found as basket", HttpStatusCode.NotFound);
 
-            var basket = JsonSerializer.Deserialize<BasketDto>(basketData);
+            var basket = JsonSerializer.Deserialize<Data.Basket>(basketData);
 
             var deleteBasketItemData = basket?.Items.FirstOrDefault(x => x.Id == request.Id);
 

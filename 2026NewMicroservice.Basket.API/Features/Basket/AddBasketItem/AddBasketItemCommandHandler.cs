@@ -1,4 +1,4 @@
-﻿using _2026NewMicroservice.Basket.API.DTOs;
+﻿using _2026NewMicroservice.Basket.API.Data;
 using _2026NewMicroservice.Basket.API.Features.Basket.Const;
 using _2026NewMicroservice.Shared;
 using _2026NewMicroservice.Shared.Services;
@@ -19,29 +19,37 @@ namespace _2026NewMicroservice.Basket.API.Features.Basket.AddBasketItem
             var basketStringData = await distributedCache.GetStringAsync(cacheBasket);
 
 
-            BasketDto? currentBasketDto;
+            Data.Basket? currentBasketDto;
 
-            var newBasketItem = new BasketItemDto(request.CourseId, request.CourseName, request.ImageUrl, request.Price, null);
+            var newBasketItem = new BasketItem(request.CourseId, request.CourseName, request.ImageUrl, request.Price,null);
 
             if (string.IsNullOrEmpty(basketStringData))
             {
-                currentBasketDto = new BasketDto(userId, [newBasketItem]);
+                currentBasketDto = new Data.Basket(userId, [newBasketItem], null, null);
 
                 await CreteateCache(currentBasketDto, cacheBasket, cancellationToken);
 
                 return ServiceResult.SuccessAsNoContent();
 
             }
-            currentBasketDto = JsonSerializer.Deserialize<BasketDto>(basketStringData);
+            currentBasketDto = JsonSerializer.Deserialize<Data.Basket>(basketStringData);
 
 
-            var existBasketItem = currentBasketDto.Items.FirstOrDefault(x => x.Id == request.CourseId);
+            var existBasketItem = currentBasketDto!.Items.FirstOrDefault(x => x.Id == request.CourseId);
 
             if (existBasketItem is not null)
                 currentBasketDto.Items.Remove(existBasketItem);
 
 
+            //sepette var olan indirimi yeni eklenen ürünede uygulamak için
+
+
             currentBasketDto.Items.Add(newBasketItem);
+
+
+            currentBasketDto.AppliedAvailableDiscount();
+            
+
 
             await CreteateCache(currentBasketDto, cacheBasket, cancellationToken);
 
@@ -49,7 +57,7 @@ namespace _2026NewMicroservice.Basket.API.Features.Basket.AddBasketItem
 
         }
 
-        public async Task CreteateCache(BasketDto basketDto, string cacheBasket, CancellationToken cancellationToken)
+        public async Task CreteateCache(Data.Basket basketDto, string cacheBasket, CancellationToken cancellationToken)
         {
             await distributedCache.SetStringAsync(cacheBasket, JsonSerializer.Serialize(basketDto), token: cancellationToken);
         }

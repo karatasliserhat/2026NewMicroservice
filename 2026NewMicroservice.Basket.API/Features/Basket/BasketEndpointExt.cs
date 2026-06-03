@@ -1,6 +1,8 @@
 ﻿using _2026NewMicroservice.Basket.API.Features.Basket.AddBasketItem;
+using _2026NewMicroservice.Basket.API.Features.Basket.ApplyDiscountCoupon;
 using _2026NewMicroservice.Basket.API.Features.Basket.DeleteBasketItem;
 using _2026NewMicroservice.Basket.API.Features.Basket.GetBasketByUser;
+using _2026NewMicroservice.Basket.API.Features.Basket.RemoveDiscountCoupon;
 using Asp.Versioning.Builder;
 
 namespace _2026NewMicroservice.Basket.API.Features.Basket
@@ -14,7 +16,9 @@ namespace _2026NewMicroservice.Basket.API.Features.Basket
                 .WithApiVersionSet(apiVersionSet)
                 .MapAddBasketItemCommandEndpoint()
                 .MapDeleteBasketItemCommandEndpoint()
-                .MapGetBasketByUserQeuryEndpoint();
+                .MapGetBasketByUserQeuryEndpoint()
+                .MapApplyDiscountCouponCommandEndpoint()
+                .MapRemoveDiscountCouponCommandEnpoint();
 
 
 

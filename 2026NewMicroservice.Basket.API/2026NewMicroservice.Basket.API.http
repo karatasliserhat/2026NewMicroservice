@@ -1,14 +1,14 @@
 @baseUrl = http://localhost:5151
-@courseId = 3fa85f64-5717-4562-b3fc-2c963f66afa6
+@courseId = 3fa85f64-5717-4562-b3fc-2c963f66af12
 
 POST {{baseUrl}}/api/v1/baskets/item
 Accept: application/json
 Content-Type: application/json
 {
   "courseId": "{{courseId}}",
-  "courseName": "test course yeni",
+  "courseName": "test course yeni2",
   "imageUrl": "test-image.png",
-  "price": 100
+  "price": 50
 }
 
 ###
@@ -19,4 +19,16 @@ Accept: application/json
 DELETE {{baseUrl}}/api/v1/baskets/item/{{courseId}}
 Accept: application/json
 
+###
+PUT {{baseUrl}}/api/v1/baskets/apply-discount-coupon
+Accept: application/json
+Content-Type: application/json
+{
+  "discountRate": 0.25,
+  "coupon": "TESTCOUPON"
+}
+
+###
+DELETE {{baseUrl}}/api/v1/baskets/remove-discount-coupon
+Accept: application/json
 
