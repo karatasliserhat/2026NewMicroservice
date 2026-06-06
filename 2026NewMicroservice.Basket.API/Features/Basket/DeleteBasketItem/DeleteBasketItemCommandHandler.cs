@@ -1,27 +1,20 @@
-﻿using _2026NewMicroservice.Basket.API.Features.Basket.Const;
-using _2026NewMicroservice.Shared;
-using _2026NewMicroservice.Shared.Services;
+﻿using _2026NewMicroservice.Shared;
 using MediatR;
-using Microsoft.Extensions.Caching.Distributed;
 using System.Net;
 using System.Text.Json;
 
 namespace _2026NewMicroservice.Basket.API.Features.Basket.DeleteBasketItem
 {
-    public class DeleteBasketItemCommandHandler(IDistributedCache distributedCache, IIdentityService identityService) : IRequestHandler<DeleteBasketItemCommand, ServiceResult>
+    public class DeleteBasketItemCommandHandler(BasketService basketService) : IRequestHandler<DeleteBasketItemCommand, ServiceResult>
     {
         public async Task<ServiceResult> Handle(DeleteBasketItemCommand request, CancellationToken cancellationToken)
         {
-            var userId = identityService.GetUserId;
+            var basketStringData = await basketService.GetBasketAsync(cancellationToken);
 
-            var cacheKey = string.Format(CacheBasketConst.BasketCache, userId);
-
-            var basketData = await distributedCache.GetStringAsync(cacheKey, cancellationToken);
-
-            if (string.IsNullOrEmpty(basketData))
+            if (string.IsNullOrEmpty(basketStringData))
                 return ServiceResult.Error("Not Found", "Not found as basket", HttpStatusCode.NotFound);
 
-            var basket = JsonSerializer.Deserialize<Data.Basket>(basketData);
+            var basket = JsonSerializer.Deserialize<Data.Basket>(basketStringData);
 
             var deleteBasketItemData = basket?.Items.FirstOrDefault(x => x.Id == request.Id);
 
@@ -30,9 +23,7 @@ namespace _2026NewMicroservice.Basket.API.Features.Basket.DeleteBasketItem
 
             basket?.Items.Remove(deleteBasketItemData!);
 
-            var seriaizedData = JsonSerializer.Serialize(basket);
-
-            await distributedCache.SetStringAsync(cacheKey, seriaizedData, cancellationToken);
+            await basketService.SetBasketAsync(basket!, cancellationToken);
 
             return ServiceResult.SuccessAsNoContent();
 

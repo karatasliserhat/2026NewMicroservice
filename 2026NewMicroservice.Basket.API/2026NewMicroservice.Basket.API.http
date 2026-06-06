@@ -6,7 +6,7 @@ Accept: application/json
 Content-Type: application/json
 {
   "courseId": "{{courseId}}",
-  "courseName": "test course yeni2",
+  "courseName": "test course yeni3",
   "imageUrl": "test-image.png",
   "price": 50
 }
