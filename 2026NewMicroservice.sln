@@ -25,6 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "discount", "discount", "{D4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2026NewMicroservice.Discount.API", "2026NewMicroservice.Discount.API\2026NewMicroservice.Discount.API.csproj", "{7AFDAD1B-29ED-43BF-9205-974F693BCBE8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "file", "file", "{2051F448-326D-4BAF-B3BC-BD76F5F29D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2026NewMicroservice.File.Api", "2026NewMicroservice.File.Api\2026NewMicroservice.File.Api.csproj", "{1AA8188F-260E-4E9F-99F3-4DE176DE2975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,10 @@ Global
 		{7AFDAD1B-29ED-43BF-9205-974F693BCBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AFDAD1B-29ED-43BF-9205-974F693BCBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AFDAD1B-29ED-43BF-9205-974F693BCBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AA8188F-260E-4E9F-99F3-4DE176DE2975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AA8188F-260E-4E9F-99F3-4DE176DE2975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AA8188F-260E-4E9F-99F3-4DE176DE2975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AA8188F-260E-4E9F-99F3-4DE176DE2975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +73,8 @@ Global
 		{7661FF31-91EB-409A-B254-EB814B532205} = {B6D06A38-00D5-4BB5-A780-F10084409BB7}
 		{D403DA6B-454B-4324-8EC0-B0558B55E6C2} = {AC19FF47-8C90-486D-90CE-AF45E8ED5ABE}
 		{7AFDAD1B-29ED-43BF-9205-974F693BCBE8} = {D403DA6B-454B-4324-8EC0-B0558B55E6C2}
+		{2051F448-326D-4BAF-B3BC-BD76F5F29D5A} = {AC19FF47-8C90-486D-90CE-AF45E8ED5ABE}
+		{1AA8188F-260E-4E9F-99F3-4DE176DE2975} = {2051F448-326D-4BAF-B3BC-BD76F5F29D5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {853EA35E-6409-4A3C-B58F-7500CA8AFA91}
