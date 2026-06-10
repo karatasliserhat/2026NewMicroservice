@@ -68,8 +68,20 @@
     ports:
       - "27020:8081"
     depends_on:
-      - mongo.db.discount   
+      - mongo.db.discount
+  sqlserver.order.db:
+     image: mcr.microsoft.com/mssql/server:2022-latest
+     container_name: "sqlserver.order"
+     restart: always
+     environment: 
+        - ACCEPT_EULA=Y 
+        - SA_PASSWORD=${DB_PASSWORD} 
+     ports: 
+        - "1433:1433"
+     volumes:
+        - "sqlserver.orderdb.volume:/var/opt/mssql"
 volumes:
   mongo.db.catalog.volume:
   mongo.db.discount.volume:
   redis.db.basket.volume:
+  sqlserver.orderdb.volume:  

@@ -1,0 +1,6 @@
+@_2026NewMicroservice.Order.Api_HostAddress = http://localhost:5228
+
+GET {{_2026NewMicroservice.Order.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
