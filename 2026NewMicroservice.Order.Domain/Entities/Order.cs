@@ -59,7 +59,21 @@ namespace _2026NewMicroservice.Order.Domain.Entities
 
             };
         }
+        public Order CreateUnPaidOrder(Guid buyerId, float discountRate)
+        {
+            return new Order
+            {
+                Id = NewId.NextSequentialGuid(),
+                Code = CreatedCode(),
+                Created = DateTime.Now,
+                BuyerId = buyerId,
+                DiscountRate = discountRate,
+                Status = OrderStatus.UnPaidApproved,
+                TotalPrice = 0,
+                OrderItems = new()
 
+            };
+        }
 
         public void ApplyDiscount(float discountRate)
         {

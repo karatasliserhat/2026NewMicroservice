@@ -2,6 +2,6 @@
 {
     public class BaseEntity<TEntityId>
     {
-        public TEntityId Id { get; set; }
+        public TEntityId Id { get; set; } = default!;
     }
 }
