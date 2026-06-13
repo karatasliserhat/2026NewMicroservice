@@ -57,7 +57,7 @@ namespace _2026NewMicroservice.Order.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("_2026NewMicroservice.Order.Domain.Entities.Order", b =>
@@ -94,7 +94,7 @@ namespace _2026NewMicroservice.Order.Persistance.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("_2026NewMicroservice.Order.Domain.Entities.OrderItem", b =>
@@ -108,8 +108,8 @@ namespace _2026NewMicroservice.Order.Persistance.Migrations
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -123,7 +123,7 @@ namespace _2026NewMicroservice.Order.Persistance.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItems", (string)null);
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("_2026NewMicroservice.Order.Domain.Entities.Order", b =>

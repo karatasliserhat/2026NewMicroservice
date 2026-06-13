@@ -3,7 +3,7 @@
     public class OrderItem : BaseEntity<int>
     {
 
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public string ProductName { get; set; } = null!;
         public decimal UnitPrice { get; set; }
 
@@ -12,7 +12,7 @@
         public Order Order { get; set; } = new();
 
 
-        public void SetItem(int productId, string productName, decimal unitPrice)
+        public void SetItem(Guid productId, string productName, decimal unitPrice)
         {
             if (string.IsNullOrEmpty(productName))
                 throw new ArgumentNullException(nameof(productName), "Product cannot be null");
@@ -43,8 +43,8 @@
             UnitPrice -= UnitPrice * ((decimal)rate / 100);
         }
 
-        public bool IsSimeItem(Order otherItem) 
-            => this.ProductId == otherItem.TotalPrice;
+        public bool IsSimeItem(OrderItem otherItem) 
+            => this.ProductId == otherItem.ProductId;
     }
 
 

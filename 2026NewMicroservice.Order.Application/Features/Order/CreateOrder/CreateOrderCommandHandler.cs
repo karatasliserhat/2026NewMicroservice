@@ -6,7 +6,7 @@ using _2026NewMicroservice.Shared.Services;
 using MediatR;
 using System.Net;
 
-namespace _2026NewMicroservice.Order.Application.Features.Order.Create
+namespace _2026NewMicroservice.Order.Application.Features.Order.CreateOrder
 {
     internal class CreateOrderCommandHandler(IOrderRepository orderRepository, IIdentityService identityService, IUnitOfWork unitOfWork) : IRequestHandler<CreateOrderCommand, ServiceResult>
     {
@@ -24,11 +24,13 @@ namespace _2026NewMicroservice.Order.Application.Features.Order.Create
                 ZipCode = request.AddressDto.ZipCode
             };
 
-            var order = new Domain.Entities.Order().CreateUnPaidOrder(identityService.GetUserId, request.DiscountRate.Value);
+            var order = new Domain.Entities.Order().CreateUnPaidOrder(identityService.GetUserId, request.DiscountRate.Value, newAddress.Id);
 
             order.Address = newAddress;
 
             request.Items.ForEach(x => order.AddOrderItem(x.ProductId, x.ProductName, x.UnitPrice));
+
+            orderRepository.Add(order);
 
             await unitOfWork.CommitAsync(cancellationToken);
 

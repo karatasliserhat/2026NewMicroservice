@@ -1,4 +1,4 @@
-﻿using _2026NewMicroservice.Order.Application.Features.Order.Create;
+﻿using _2026NewMicroservice.Order.Application.Features.Order.CreateOrder;
 using _2026NewMicroservice.Shared.Extensions;
 using _2026NewMicroservice.Shared.Filters;
 using MediatR;
@@ -16,7 +16,7 @@ namespace _2026NewMicroservice.Order.Api.Endpoints.Order
                 .MapToApiVersion(1, 0)
                 .Produces(StatusCodes.Status200OK)
                 .Produces(StatusCodes.Status400BadRequest)
-                .AddEndpointFilter<ValidationFilter<CreateCommandValidator>>();
+                .AddEndpointFilter<ValidationFilter<CreateOrderCommand>>();
             return group;
 
         }

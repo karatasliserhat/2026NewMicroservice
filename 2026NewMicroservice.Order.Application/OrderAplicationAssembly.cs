@@ -1,5 +1,5 @@
 ﻿namespace _2026NewMicroservice.Order.Api;
 
-public struct OrderAssembly;
+public struct OrderApplicationAssembly;
 
 

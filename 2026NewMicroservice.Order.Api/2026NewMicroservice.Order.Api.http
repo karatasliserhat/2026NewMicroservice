@@ -1,6 +1,40 @@
-@_2026NewMicroservice.Order.Api_HostAddress = http://localhost:5228
+﻿@BaseUrl = http://localhost:5228
 
-GET {{_2026NewMicroservice.Order.Api_HostAddress}}/weatherforecast/
+POST {{BaseUrl}}/api/v1/orders
 Accept: application/json
+Content-Type: application/json
+{
+  "discountRate": 20,
+  "addressDto": {
+    "province": "test",
+    "district": "test1",
+    "street": "cadde",
+    "zipCode": "21034",
+    "line": "test3"
+  },
+  "paymentDto": {
+    "cardNumber": "1111-1111-1111-1111",
+    "cardHoldName": "Serhat Karataşlı",
+    "expiration": "12/30",
+    "cvv": "378",
+    "amount": 270
+  },
+  "items": [
+    {
+      "productId": "3fa85f64-5717-4562-b3fc-2c963f66afa9",
+      "productName": "test1",
+      "unitPrice": 100
+    },
+    {
+      "productId": "3fa85f64-5717-4562-b3fc-2c963f66af11",
+      "productName": "test2",
+      "unitPrice": 200
+    }
+  ]
+}
 
 ###
+
+GET {{BaseUrl}}/api/v1/orders
+Accept: applicatiom/json
+ 

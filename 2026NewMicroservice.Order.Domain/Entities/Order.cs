@@ -35,10 +35,12 @@ namespace _2026NewMicroservice.Order.Domain.Entities
             return orderCode.ToString();
         }
 
-        public void AddOrderItem(int id, string productName, decimal unitPrice)
+        public void AddOrderItem(Guid productIdd, string productName, decimal unitPrice)
         {
             var item = new OrderItem();
-            item.SetItem(id, productName, unitPrice);
+            if (DiscountRate > 0)
+                unitPrice -= unitPrice * ((decimal)DiscountRate.Value / 100);
+            item.SetItem(productIdd, productName, unitPrice);
 
             OrderItems.Add(item);
             CalculateTotalPrice();
@@ -77,7 +79,7 @@ namespace _2026NewMicroservice.Order.Domain.Entities
 
         public void ApplyDiscount(float discountRate)
         {
-            if (discountRate < 0 || discountRate > 0)
+            if (discountRate < 0 || discountRate > 100)
                 throw new ArgumentException("Discount mus be grather then 0 and 100");
             DiscountRate = discountRate;
 
@@ -94,9 +96,6 @@ namespace _2026NewMicroservice.Order.Domain.Entities
         private void CalculateTotalPrice()
         {
             TotalPrice = OrderItems.Sum(x => x.UnitPrice);
-
-            if (DiscountRate > 0)
-                TotalPrice -= TotalPrice * ((decimal)DiscountRate.Value / 100);
 
         }
 

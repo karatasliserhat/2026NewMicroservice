@@ -11,7 +11,8 @@ namespace _2026NewMicroservice.Order.Api.Endpoints
             app.MapGroup("api/v{version:apiVersion}/orders")
                 .WithApiVersionSet(apiVersionSet)
                 .WithTags("Orders")
-                .MapCreateOrderEnpoint();
+                .MapCreateOrderEnpoint()
+                .MapGetOrdersEndpoint();
         }
     }
 }

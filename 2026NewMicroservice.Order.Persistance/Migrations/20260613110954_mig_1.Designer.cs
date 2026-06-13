@@ -12,7 +12,7 @@ using _2026NewMicroservice.Order.Persistance.Context;
 namespace _2026NewMicroservice.Order.Persistance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260610195422_mig_1")]
+    [Migration("20260613110954_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -111,8 +111,8 @@ namespace _2026NewMicroservice.Order.Persistance.Migrations
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
