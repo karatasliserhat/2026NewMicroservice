@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2026NewMicroservice.Order.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2026NewMicroservice.Order.Persistance", "2026NewMicroservice.Order.Persistance\2026NewMicroservice.Order.Persistance.csproj", "{47E2D818-22D8-4104-934F-A6F1D0232DAA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "payment", "payment", "{AB09ED74-32AD-46CA-AEF8-4478774A2501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2026NewMicroservice.Payment.Api", "2026NewMicroservice.Payment.Api\2026NewMicroservice.Payment.Api.csproj", "{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,10 @@ Global
 		{47E2D818-22D8-4104-934F-A6F1D0232DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E2D818-22D8-4104-934F-A6F1D0232DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E2D818-22D8-4104-934F-A6F1D0232DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +126,8 @@ Global
 		{6176116F-14FF-4E38-95AD-00AD06BDAA66} = {EB075BAA-6ED2-4640-A018-7C906AEC61B3}
 		{ADC6A9A7-5B8C-4882-92D3-1692ABB0EA05} = {A288DA9F-FA44-4998-8F6C-8F228669A084}
 		{47E2D818-22D8-4104-934F-A6F1D0232DAA} = {45128E9C-7A99-404D-BE0F-1413ED89B584}
+		{AB09ED74-32AD-46CA-AEF8-4478774A2501} = {AC19FF47-8C90-486D-90CE-AF45E8ED5ABE}
+		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3} = {AB09ED74-32AD-46CA-AEF8-4478774A2501}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {853EA35E-6409-4A3C-B58F-7500CA8AFA91}
