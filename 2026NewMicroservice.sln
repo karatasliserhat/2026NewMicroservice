@@ -51,6 +51,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "payment", "payment", "{AB09
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2026NewMicroservice.Payment.Api", "2026NewMicroservice.Payment.Api\2026NewMicroservice.Payment.Api.csproj", "{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{80C9BAD6-3D46-4828-A763-4AC3B5F570BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2026NewMicroservice.Gateway", "2026NewMicroservice.Gateway\2026NewMicroservice.Gateway.csproj", "{CCF1297E-2827-4600-ABD9-D64E2A4AA0BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +105,10 @@ Global
 		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF1297E-2827-4600-ABD9-D64E2A4AA0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF1297E-2827-4600-ABD9-D64E2A4AA0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF1297E-2827-4600-ABD9-D64E2A4AA0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF1297E-2827-4600-ABD9-D64E2A4AA0BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,6 +136,8 @@ Global
 		{47E2D818-22D8-4104-934F-A6F1D0232DAA} = {45128E9C-7A99-404D-BE0F-1413ED89B584}
 		{AB09ED74-32AD-46CA-AEF8-4478774A2501} = {AC19FF47-8C90-486D-90CE-AF45E8ED5ABE}
 		{66CAA323-7FC3-43B8-A4F0-9822A416D6E3} = {AB09ED74-32AD-46CA-AEF8-4478774A2501}
+		{80C9BAD6-3D46-4828-A763-4AC3B5F570BF} = {AC19FF47-8C90-486D-90CE-AF45E8ED5ABE}
+		{CCF1297E-2827-4600-ABD9-D64E2A4AA0BA} = {80C9BAD6-3D46-4828-A763-4AC3B5F570BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {853EA35E-6409-4A3C-B58F-7500CA8AFA91}

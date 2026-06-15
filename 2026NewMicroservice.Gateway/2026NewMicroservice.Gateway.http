@@ -1,0 +1,18 @@
+﻿@BaseUrl = http://localhost:5092
+
+POST {{BaseUrl}}/v1/payments
+Accept: application/json
+Content-Type: application/json
+{
+  "orderCode": "3fa85f64-5717-4562-b3fc-2c963f66af21",
+  "cardNumber": "1111111111111111 ",
+  "cardHolderName": "Serhat Karataşlı",
+  "cardExpiration": "12/35",
+  "cardSecurty": "test",
+  "amount": 165
+}
+
+###
+
+GET {{BaseUrl}}/v1/payments
+Accept: applcation/json
