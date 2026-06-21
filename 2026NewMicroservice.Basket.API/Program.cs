@@ -19,6 +19,9 @@ builder.Services.AddStackExchangeRedisCache(options =>
 
 builder.Services.AddScoped<BasketService>();
 
+
+builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+
 var app = builder.Build();
 
 app.AddBasketEndpoints(app.AddApiVersionSetExt());
@@ -31,7 +34,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.Run();

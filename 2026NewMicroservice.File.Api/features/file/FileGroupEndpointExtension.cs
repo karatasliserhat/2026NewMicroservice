@@ -14,7 +14,8 @@ namespace _2026NewMicroservice.File.Api.features.file
                 .MapUploadFileCommandEndpoint()
                 .MapDeleteFileCommandEndpoint()
                 .WithApiVersionSet(apiVersionSet)
-                .DisableAntiforgery();
+                .DisableAntiforgery().
+                RequireAuthorization();
         }
     }
 }

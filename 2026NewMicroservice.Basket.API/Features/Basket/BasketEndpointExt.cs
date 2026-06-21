@@ -18,7 +18,8 @@ namespace _2026NewMicroservice.Basket.API.Features.Basket
                 .MapDeleteBasketItemCommandEndpoint()
                 .MapGetBasketByUserQeuryEndpoint()
                 .MapApplyDiscountCouponCommandEndpoint()
-                .MapRemoveDiscountCouponCommandEnpoint();
+                .MapRemoveDiscountCouponCommandEnpoint()
+                .RequireAuthorization();
 
 
 

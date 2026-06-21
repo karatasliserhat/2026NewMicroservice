@@ -14,6 +14,8 @@ builder.Services.AddDatabaseMongoExt();
 
 builder.Services.AddApiVersioning();
 
+builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -24,6 +26,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.AddDiscountGroupEndpointExt(app.AddApiVersionSetExt());
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
 

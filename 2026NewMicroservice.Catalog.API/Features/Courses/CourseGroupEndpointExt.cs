@@ -20,7 +20,8 @@ namespace _2026NewMicroservice.Catalog.API.Features.Courses
                 .MapGetCourseByIdEndpoint()
                 .MapUpdateCourseCommandEndpoint()
                 .MapDeleteCourseCommandEndpoint()
-                .MapGetCourseByUserIdEndpoint();
+                .MapGetCourseByUserIdEndpoint()
+                .RequireAuthorization();
         }
     }
 }

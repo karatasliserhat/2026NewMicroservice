@@ -14,7 +14,6 @@ namespace _2026NewMicroservice.Payment.Api.Features.Payments
                 .WithApiVersionSet(apiVersionSet)
                 .MapCreatePaymentCommandEndpoint()
                 .MapGetPaymentsByUserIdQueryEndpoint();
-
         }
     }
 }

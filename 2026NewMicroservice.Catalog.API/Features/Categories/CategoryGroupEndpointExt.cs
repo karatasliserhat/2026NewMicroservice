@@ -14,7 +14,8 @@ namespace _2026NewMicroservice.Catalog.API.Features.Categories
                 .WithApiVersionSet(apiVersionSet)
                 .MapCreateCategoryEndpoint()
                 .MapGetAllCategoriesEndpoint()
-                .MapGetCategoryByIdEndpoint();
+                .MapGetCategoryByIdEndpoint()
+                .RequireAuthorization();
         }
     }
 }

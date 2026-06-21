@@ -10,6 +10,7 @@ namespace _2026NewMicroservice.Payment.Api.Features.Payments.Create
     {
         public async Task<ServiceResult<Guid>> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
         {
+
             (bool isSuccess, string? errorMessage) status = await ExternalPaymentProcess(request.CardNumber, request.CardHolderName, request.CardExpiration, request.CardSecurty);
 
             if (!status.isSuccess)

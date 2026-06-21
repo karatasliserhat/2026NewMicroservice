@@ -16,7 +16,7 @@ namespace _2026NewMicroservice.Shared.Extensions
 
             services.AddAutoMapper(cfg => { }, assembly);
 
-            services.AddScoped<IIdentityService, IdentityServiceFake>();
+            services.AddScoped<IIdentityService, IdentityService>();
 
             services.AddSwaggerGen();
 

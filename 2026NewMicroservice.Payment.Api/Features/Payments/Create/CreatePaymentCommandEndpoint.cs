@@ -18,7 +18,8 @@ namespace _2026NewMicroservice.Payment.Api.Features.Payments.Create
                 .Produces<Guid>(StatusCodes.Status200OK)
                 .Produces<ProblemDetails>(StatusCodes.Status400BadRequest)
                 .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError)
-                .AddEndpointFilter<ValidationFilter<CreatePaymentCommand>>();
+                .AddEndpointFilter<ValidationFilter<CreatePaymentCommand>>()
+                .RequireAuthorization("Password");
 
 
             return group;

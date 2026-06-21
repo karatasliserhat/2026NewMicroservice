@@ -18,6 +18,8 @@ builder.Services.AddCommonServiceExt(typeof(CatalogAssembly));
 
 builder.Services.AddVersioningExt();
 
+builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+
 var app = builder.Build();
 
 app.AddSeedData().ContinueWith(x => { Console.WriteLine(x.IsFaulted ? x.Exception?.Message : "Seed data added."); });
@@ -35,7 +37,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
 

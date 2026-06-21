@@ -12,7 +12,8 @@ namespace _2026NewMicroservice.Discount.API.Features.Discounts
                 .WithTags("Discounts")
                 .WithApiVersionSet(apiVersionSet)
                 .MapCreateDiscountEndpoint()
-                .MapGetDiscountByCodeQueryEndpoint();
+                .MapGetDiscountByCodeQueryEndpoint()
+                .RequireAuthorization();
         }
     }
 }

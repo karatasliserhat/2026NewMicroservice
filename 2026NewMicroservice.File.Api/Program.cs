@@ -14,6 +14,8 @@ builder.Services.AddVersioningExt();
 
 builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),"wwwroot")));
 
+builder.Services.AddAuthenticationAndAuthorizationExt(builder.Configuration);
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -26,6 +28,9 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.AddFileGroupEndpointExtension(app.AddApiVersionSetExt());
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
 
